@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nameLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/nameText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/weightLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/weightText"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintEnd_toStartOf="@+id/weightToggle"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/weightLbl" />
+
+            <ToggleButton
+                android:id="@+id/weightToggle"
+                style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:checked="true"
+                android:text="ToggleButton"
+                android:textOff="kg"
+                android:textOn="lbs"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="90dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/heightLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Height:"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/weightLbl"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/feetText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/feetLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ft" />
+
+            <EditText
+                android:id="@+id/inText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/inLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="in." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/sexLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sex:"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightLbl" />
+
+            <Spinner
+                android:id="@+id/sexSpinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.015"
+                app:layout_constraintStart_toEndOf="@+id/heightLbl"
+                tools:layout_editor_absoluteY="49dp" />
+
+        </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/continueLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="If you are starting to drink, click continue"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="205dp" />
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="continue"
+        app:layout_constraintBottom_toTopOf="@+id/exitLbl"
+        app:layout_constraintTop_toBottomOf="@+id/continueLbl"
+        tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/exitLbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="otherwise, click end to create your profile"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="13dp"
+            tools:layout_editor_absoluteY="317dp" />
+
+    <Button
+        android:id="@+id/endButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="end"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="360dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
