@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createProfile();
-                //TODO: goes to HaveYouStarted Activity Screen, change to Profiles Activity Screen
-                Intent drinksIntent = new Intent(getApplicationContext(),HaveYouStarted.class);
+                Intent drinksIntent = new Intent(getApplicationContext(),Profiles.class);
                 startActivity(drinksIntent);
             }
         });
@@ -79,7 +80,11 @@ public class MainActivity extends AppCompatActivity {
         Drinker drunk = new Drinker(name, weight, sexBool);
 
         //add to ArrayList
-        HaveYouStarted.drunks.add(drunk);
-        HaveYouStarted.current = drunk;
+        if (!Profiles.drunks.contains(drunk))
+            Profiles.drunks.add(drunk);
+        Profiles.current = drunk;
     }
+
 }
+
+//TODO:optional personal limit (with suggested limits)

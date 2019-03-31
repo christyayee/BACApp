@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">BACApp</string>
+    <item type="id" name = "b0" />
+    <item type="id" name = "b1" />
+    <item type="id" name = "b2" />
+    <item type="id" name = "b3" />
+    <item type="id" name = "b4" />
+    <item type="id" name = "b5" />
+    <item type="id" name = "b6" />
+    <item type="id" name = "b7" />
+    <item type="id" name = "b8" />
+    <item type="id" name = "b9" />
+
 </resources>

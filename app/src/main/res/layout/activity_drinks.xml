@@ -9,67 +9,180 @@
     <TextView
         android:id="@+id/drinksLbl"
         android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="What are you drinking?"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center_horizontal"
-        android:text="What are you drinking?"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/drinksLbl">
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="0dp"
+        <RadioButton
+            android:id="@+id/beerButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRButtonClicked"
+            android:text="Beer" />
+
+        <RadioButton
+            android:id="@+id/wineButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRButtonClicked"
+            android:text="Wine" />
+
+        <RadioButton
+            android:id="@+id/liquorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRButtonClicked"
+            android:text="Hard Liquor" />
+
+        <RadioButton
+            android:id="@+id/otherButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRButtonClicked"
+            android:text="Other" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="147dp">
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.076">
 
-        <TableRow
+        <TextView
+            android:id="@+id/howManyLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:text="How many are you having?"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="80dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/howManyLbl"
+            tools:layout_editor_absoluteX="16dp">
 
-            <Button
-                android:id="@+id/beerButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="beer" />
-
-            <Button
-                android:id="@+id/wineButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="wine" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/liquorButton"
+            <EditText
+                android:id="@+id/numText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="hard liquor" />
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0" />
 
             <Button
-                android:id="@+id/otherButton"
+                android:id="@+id/upButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="other" />
-        </TableRow>
+                android:layout_weight="1"
+                android:text="+" />
 
-    </TableLayout>
+            <Button
+                android:id="@+id/downButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/timeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility = "invisible">
+
+            <TextView
+                android:id="@+id/timeLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start Time:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/timeText"
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="time" />
+
+            <ToggleButton
+                android:id="@+id/timeToggle"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="AM"
+                android:textOn="PM" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="now"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/continueButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="continue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeLayout" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -163,20 +163,60 @@
         </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/continueLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="If you are starting to drink, click continue"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="205dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility = "invisible">
+
+            <TextView
+                android:id="@+id/timeLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start Time:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/timeText"
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="time" />
+
+            <ToggleButton
+                android:id="@+id/timeToggle"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="AM"
+                android:textOn="PM" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="now"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/continueLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To add a drink, click continue"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp"
+
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="205dp" />
 
     <Button
         android:id="@+id/continueButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="continue"
         app:layout_constraintBottom_toTopOf="@+id/exitLbl"
@@ -187,8 +227,9 @@
             android:id="@+id/exitLbl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="otherwise, click end to create your profile"
+            android:text="Otherwise, click end to create your profile"
             android:textSize="20dp"
+            android:gravity = "center"
             tools:layout_editor_absoluteX="13dp"
             tools:layout_editor_absoluteY="317dp" />
 
