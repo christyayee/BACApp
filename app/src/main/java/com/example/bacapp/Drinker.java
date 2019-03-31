@@ -1,9 +1,15 @@
 package com.example.bacapp;
+import android.nfc.Tag;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static android.content.ContentValues.TAG;
 
 public class Drinker
 {
@@ -26,22 +32,8 @@ public class Drinker
         mySex = sex;
         myBAC = 0;
         myDrinks = 0;
-        //Date date = Calendar.getInstance().getTime();
-        //DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        //myStart = dateFormat.format(date);
         myStart = null;
-        /*if (start == "now")
-            myStart = Calendar.getInstance();
-        else
-        {
-            try {
-                myStart.setTime(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").parse(start));
-            }
-            catch (ParseException e)
-            {
-                System.out.print(e.getMessage());
-            }
-        }*/
+
 
         numBeer = 0;
         numWine = 0;
@@ -56,7 +48,7 @@ public class Drinker
         mySex = sex;
         myBAC = 0;
         try {
-            myStart.setTime(new SimpleDateFormat("hh:mm").parse(start));
+            myStart.setTime(new SimpleDateFormat("HH:mm").parse(start));
         }
         catch (ParseException e)
         {
@@ -132,7 +124,13 @@ public class Drinker
         else
         {
             try {
-                myStart.setTime(new SimpleDateFormat("hh:mm a").parse(str));
+                myStart.setTime(new SimpleDateFormat("HH:mm").parse(str));
+                myStart.set(Calendar.DAY_OF_MONTH, Calendar.getInstance().get(Calendar.DATE));
+                myStart.set(Calendar.MONTH, Calendar.getInstance().get(Calendar.MONTH));
+                myStart.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
+
+                //Log.v(TAG,"FUCK! FUCK! FUCK!" + str);
+
             }
             catch (ParseException e)
             {
@@ -145,17 +143,18 @@ public class Drinker
     public double getTimeElapsed()
     {
         Date date = new Date();
-        long temp = date.getTime();
         Timestamp nowStamp = new Timestamp(date.getTime());
-        Calendar now = Calendar.getInstance();
-        now.setTimeInMillis(nowStamp.getTime());
+
+        //now Time hour/sec is before startTime's
+        if (date.before(myStart.getTime()))
+            myStart.set(Calendar.DAY_OF_MONTH, -1 + Calendar.getInstance().get(Calendar.DATE));
 
         Timestamp startStamp = new Timestamp(myStart.getTime().getTime());
 
         //convert milliseconds to hours
         long milliseconds = nowStamp.getTime() - startStamp.getTime();
-        int seconds = (int) milliseconds / 1000;
-        double hours = seconds / 3600;
+        long seconds = milliseconds / 1000;
+        double hours = (double)seconds / 3600;
 
         return hours;
     }
@@ -173,6 +172,6 @@ public class Drinker
     }
 
 
-//TODO:set limit, otherAlc details
+//TODO:set personal limit
 
 }
