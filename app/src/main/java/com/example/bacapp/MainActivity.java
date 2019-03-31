@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
@@ -25,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sexSpinner.setAdapter(adapter);
 
+        Button endButton = (Button)findViewById(R.id.endButton);
+        endButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createProfile();
+                //TODO: goes to HaveYouStarted Activity Screen, change to Profiles Activity Screen
+                Intent drinksIntent = new Intent(getApplicationContext(),HaveYouStarted.class);
+                startActivity(drinksIntent);
+            }
+        });
+
         Button continueButton = (Button)findViewById(R.id.continueButton);
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    //TODO: return bool if all fields filled and profile is created
     private void createProfile()
     {
         //get all values
@@ -56,10 +69,17 @@ public class MainActivity extends AppCompatActivity {
             sexBool =  true;
 
         //convert lbs to kgs if lbs
+        ToggleButton weightToggle = (ToggleButton)findViewById(R.id.weightToggle);
+        if (weightToggle.isChecked()) //lbs
+            weight /= 2.20462;
 
         weight *= 1000; //convert kgs to g
 
         //create profile
         Drinker drunk = new Drinker(name, weight, sexBool);
+
+        //add to ArrayList
+        HaveYouStarted.drunks.add(drunk);
+        HaveYouStarted.current = drunk;
     }
 }
