@@ -16,17 +16,17 @@ import java.util.ArrayList;
 public class Profiles extends AppCompatActivity {
 
     public static ArrayList<Drinker> drunks = new ArrayList<Drinker>();
-    public static Drinker current;
+    public static Drinker current = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profiles);
 
-        int buttonNum = Profiles.drunks.size();
+        final int buttonNum = Profiles.drunks.size();
         LinearLayout col0 = (LinearLayout) findViewById(R.id.col0);
         if (buttonNum == 0) {
-            Toast t = Toast.makeText(getApplicationContext(), "No profiles created yet.", Toast.LENGTH_LONG);
+            Toast t = Toast.makeText(getApplicationContext(), "No profiles created yet. \nCreate a profile and start your night!", Toast.LENGTH_LONG);
             t.show();
         }
         else {
@@ -72,9 +72,16 @@ public class Profiles extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //goes to Main Activity Screen
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
+               if (buttonNum == 10)
+               {
+                   Toast t = Toast.makeText(getApplicationContext(), "Max number of profiles have already been created.", Toast.LENGTH_LONG);
+                   t.show();
+               }
+               else {
+                   //goes to Main Activity Screen
+                   Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+                   startActivity(startIntent);
+               }
             }
         });
 
@@ -82,5 +89,3 @@ public class Profiles extends AppCompatActivity {
 
     }
 }
-
-//TODO: edit profile

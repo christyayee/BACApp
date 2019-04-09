@@ -4,7 +4,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -19,13 +18,15 @@ public class Drinker
     private double myBAC;
     private int myDrinks;
     private Calendar myStart;
+    private int myFeet;
+    private int myInches;
 
     private int numBeer;
     private int numWine;
     private int numLiquor;
     private int numOther;
 
-    Drinker(String name, double weight, boolean sex)
+    Drinker(String name, double weight, boolean sex, int feet, int inches)
     {
         myName = name;
         myWeight = weight;
@@ -33,7 +34,8 @@ public class Drinker
         myBAC = 0;
         myDrinks = 0;
         myStart = null;
-
+        myFeet = feet;
+        myInches = inches;
 
         numBeer = 0;
         numWine = 0;
@@ -70,6 +72,27 @@ public class Drinker
     public String getName()
     {
         return myName;
+    }
+
+    public double getWeight()
+    {
+        return myWeight;
+    }
+
+    public int getFeet()
+    {
+        return myFeet;
+    }
+
+    public int getInches()
+    {
+        return myInches;
+    }
+
+    public boolean getSex()
+    {
+        return mySex;
+
     }
 
     public int getDrinks()
@@ -117,6 +140,31 @@ public class Drinker
         return myStart != null;
     }
 
+    public void setName(String name)
+    {
+        myName = name;
+    }
+
+    public void setWeight(double weight)
+    {
+        myWeight = weight;
+    }
+
+    public void setFeet(int feet)
+    {
+        myFeet = feet;
+    }
+
+    public void setInches(int inches)
+    {
+        myInches = inches;
+    }
+
+    public void setSex(boolean sex)
+    {
+        mySex = sex;
+    }
+
     public void setStartTime(String str)
     {
         if (str == "now")
@@ -129,7 +177,7 @@ public class Drinker
                 myStart.set(Calendar.MONTH, Calendar.getInstance().get(Calendar.MONTH));
                 myStart.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
 
-                //Log.v(TAG,"FUCK! FUCK! FUCK!" + str);
+//                Log.v(TAG,"FUCK! FUCK! FUCK!" + str);
 
             }
             catch (ParseException e)
@@ -172,6 +220,6 @@ public class Drinker
     }
 
 
-//TODO:set personal limit
+//TODO:personal stats
 
 }

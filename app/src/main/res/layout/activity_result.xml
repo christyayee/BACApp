@@ -58,11 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Another drink?"
-            app:layout_constraintBaseline_toBaselineOf="@+id/exitButton"
+            app:layout_constraintBaseline_toBaselineOf="@+id/viewButton"
             tools:layout_editor_absoluteX="106dp" />
 
         <Button
-            android:id="@+id/exitButton"
+            android:id="@+id/viewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Main Menu"

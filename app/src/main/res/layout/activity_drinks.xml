@@ -58,13 +58,6 @@
             android:onClick="onRButtonClicked"
             android:text="Hard Liquor" />
 
-        <RadioButton
-            android:id="@+id/otherButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRButtonClicked"
-            android:text="Other" />
-
     </RadioGroup>
 
     <LinearLayout
@@ -149,21 +142,21 @@
                 android:text="Start Time:"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/timeText"
                 android:layout_width="126dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="time" />
+                android:inputType="none"
+                android:text="hh:mm"
+                android:textSize="20dp" />
 
-            <ToggleButton
+            <TextView
                 android:id="@+id/timeToggle"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textOff="AM"
-                android:textOn="PM" />
+                android:layout_weight="1"/>
 
             <CheckBox
                 android:id="@+id/checkBox"
@@ -183,6 +176,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timeLayout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calculationLbl">
+
+            <Button
+                android:id="@+id/menuButton"
+                android:layout_width="174dp"
+                android:layout_height="wrap_content"
+                android:text="Main Menu"
+                app:layout_constraintBaseline_toBaselineOf="@+id/viewButton"
+                tools:layout_editor_absoluteX="106dp" />
+
+            <Button
+                android:id="@+id/editButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Edit Profile" />
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
